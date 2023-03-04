@@ -47,7 +47,6 @@ export const useNoteEditor = () => {
   const [name, setName] = useState<any>();
   const updateNote = async (id: any, content: any) => {
     const noteRef = doc(db, 'notes', id);
-    console.log(content, 'content');
     await updateDoc(noteRef, { content: content });
   };
   const addAndUpdateTags = async (id: any) => {
