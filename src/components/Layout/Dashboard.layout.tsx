@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import SidebarComponent from '@/components/Sidebar';
-import EndSidebar from '@/components/AlterSidebar';
+import SidebarComponent from '@/components/sidebar';
 
 type LayoutProps = {
   children: React.ReactNode;

@@ -42,12 +42,45 @@ export const useAddNote = () => {
 };
 
 export const useNoteEditor = () => {
+  const [tags, setTags] = useState<any>([]);
+  const [tagName, setTagName] = useState<any>([]);
+  const [name, setName] = useState<any>();
   const updateNote = async (id: any, content: any) => {
     const noteRef = doc(db, 'notes', id);
     console.log(content, 'content');
     await updateDoc(noteRef, { content: content });
   };
-  return { updateNote };
+  const addAndUpdateTags = async (id: any) => {
+    const noteRef = doc(db, 'notes', id);
+    const newTags = [...tags, tagName];
+    setTags([...tags, tagName]);
+    await updateDoc(noteRef, { tags: newTags });
+    setTagName('');
+  };
+  const deleteTag = async (id: any, tag: any) => {
+    const noteRef = doc(db, 'notes', id);
+    const newTags = tags.filter((t: any) => t !== tag);
+    setTags(newTags);
+    console.log(newTags, 'New tags');
+    await updateDoc(noteRef, { tags: newTags });
+  };
+  const updateName = async (id: any, name: any) => {
+    const noteRef = doc(db, 'notes', id);
+    await updateDoc(noteRef, { name: name });
+  };
+
+  return {
+    updateNote,
+    addAndUpdateTags,
+    updateName,
+    tags,
+    setTags,
+    setName,
+    name,
+    setTagName,
+    tagName,
+    deleteTag,
+  };
 };
 
 export const useGetNotes = () => {
@@ -128,6 +161,7 @@ export const useAllNotesByid = () => {
         createdAt: new Date().getTime(),
         user_id: user.uid,
         content: null,
+        tags: [],
         notebook_id: notebook_id ? notebook_id : null,
       };
       const response = await addDoc(collection(db, 'notes'), preparedDoc);

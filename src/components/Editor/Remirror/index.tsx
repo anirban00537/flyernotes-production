@@ -112,8 +112,7 @@ const Collapsible = ({ notesDetails, id }: any): JSX.Element => {
 
   return (
     <div className="m-5">
-      <EditorHeader notesDetails={notesDetails} />
-
+      <EditorHeader notesDetails={notesDetails} id={id} />
       <AllStyledComponent>
         <ThemeProvider>
           <Remirror

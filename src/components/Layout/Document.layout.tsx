@@ -1,8 +1,7 @@
 import Head from 'next/head';
 import Loading from '../Loading';
 import { useCheckAuthState } from '@/state/hooks/user.hook';
-import SidebarComponent from '@/components/Sidebar';
-import EndSidebar from '@/components/AlterSidebar';
+import SidebarComponent from '@/components/sidebar';
 type LayoutProps = {
   children: React.ReactNode;
   title?: string;
