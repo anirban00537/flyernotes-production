@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { GoChevronDown, GoChevronUp } from 'react-icons/go';
-import { BiDockBottom } from 'react-icons/bi';
-import { BiDotsHorizontalRounded } from 'react-icons/bi';
-import AddNoteBook from '@/components/AlterSidebar/AddModals/AddNotebook';
-import Link from 'next/link';
+import { useState } from "react";
+import { GoChevronDown, GoChevronUp } from "react-icons/go";
+import { BiDockBottom } from "react-icons/bi";
+import { BiDotsHorizontalRounded } from "react-icons/bi";
+import AddNoteBook from "@/components/AlterSidebar/AddModals/AddNotebook";
+import Link from "next/link";
 
 const NoteBookCollapse = ({ notebooks }: any) => {
   return (
@@ -20,10 +20,10 @@ const NoteBookCollapse = ({ notebooks }: any) => {
         <AddNoteBook />
       </button>
       <ul id="dropdown-example" className="space-y-2 py-2 pl-0">
-        <li onClick={() => {}}>
+        <li>
           {notebooks?.map((notebook: any, index: number) => (
-            <Link href={`/notebook/${notebook.id}`} key={index}>
-              <a
+            <Link href={`/notebook/${notebook?.id}`} key={index}>
+              <div
                 className={`grou flex w-full items-center  p-2  text-sm  text-gray-800 transition duration-75 `}
               >
                 <BiDockBottom className="mr-2" />
@@ -31,7 +31,7 @@ const NoteBookCollapse = ({ notebooks }: any) => {
                   {notebook?.data?.name}
                 </span>
                 <BiDotsHorizontalRounded />
-              </a>
+              </div>
             </Link>
           ))}
         </li>

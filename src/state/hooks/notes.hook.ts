@@ -112,7 +112,7 @@ export const useInitialAllNotes = () => {
   const getNotes = async () => {
     const notesRef = await collection(db, 'notes');
     const noteQuery = query(notesRef, where('user_id', '==', user.uid));
-    const Notes = await getDocsFromCache(noteQuery);
+    const Notes = await getDocs(noteQuery);
     await Notes.forEach((doc) => {
       GlobalNotesData.push({
         id: doc.id,
@@ -142,7 +142,7 @@ export const useAllNotesByid = () => {
       where('user_id', '==', user.uid),
     );
 
-    const Notes = await getDocsFromCache(noteQuery);
+    const Notes = await getDocs(noteQuery);
     await Notes.forEach((doc) => {
       GlobalNotesData.push({
         id: doc.id,

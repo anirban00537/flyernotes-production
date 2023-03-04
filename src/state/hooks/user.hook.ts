@@ -53,7 +53,7 @@ export const useCheckAuthState = () => {
         const token = await user.getIdToken();
         await setUser(user);
         await nookies.set(undefined, 'token', token, { path: '/' });
-        const GlobalNotebooksData = await InitialNotebooks();
+        const GlobalNotebooksData = await InitialNotebooks(user);
         await dispatch(setNotebooks(GlobalNotebooksData));
         dispatch(setLoading(false));
       }
