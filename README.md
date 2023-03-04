@@ -1,50 +1,38 @@
-# Tailwind CSS + TypeScript + Next.js Starter
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-This is a lightweight starterkit / boilerplate to get up and running with Tailwind CSS, TypeScript and Next.js.
+## Getting Started
 
-## Why make this boilerplate?
-
-Tailwind, Next.js, and TypeScript is an excellent stack for building web apps. The most annoying part of using the stack
-is setting it up every time, so I made an easy to use template that I and many others can use.
-
-## Usage
-
-### 1. Clone Repo
-
-Github released [Github Templates](https://github.blog/2019-06-06-generate-new-repositories-with-repository-templates/) which allows users to generate a new repo from a template repo that will have the exact same files and structure. You can generate your own repo from this template by using [this link](https://github.com/kyrelldixon/next-tailwind-typescript-starter/generate).
-
-From there, you can clone your own repo and modify it however you like.
-
-If you would rather clone this repo, go to the command line and run:
+First, run the development server:
 
 ```bash
-git clone https://github.com/kyrelldixon/next-tailwind-typescript-starter <your-project-name>
-cd <your-project-name>
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
 ```
 
-### 2. Install Dependencies
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```bash
-pnpm install # npm i
-```
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-### 3. Run Development Environment
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-```bash
-pnpm dev # npm run dev
-```
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-### Test Production Environment
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-I also included a `stage` script that will build and start a production server. You can run it with:
+## Learn More
 
-```bash
-pnpm stage # npm run stage
-```
+To learn more about Next.js, take a look at the following resources:
 
-Alternatively you can run:
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-```bash
-pnpm build # npm run build
-pnpm start # npm start
-```
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
