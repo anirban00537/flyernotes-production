@@ -21,8 +21,8 @@ const NoteBookCollapse = ({ notebooks }: any) => {
       </button>
       <ul id="dropdown-example" className="space-y-2 py-2 pl-0">
         <li onClick={() => {}}>
-          {notebooks?.map((notebook: any) => (
-            <Link href={`/notebook/${notebook.id}`}>
+          {notebooks?.map((notebook: any, index: number) => (
+            <Link href={`/notebook/${notebook.id}`} key={index}>
               <a
                 className={`grou flex w-full items-center  p-2  text-sm  text-gray-800 transition duration-75 `}
               >

@@ -8,8 +8,8 @@ const TimeLineListNotes = ({ notes }: any) => {
     <div className="">
       <div className=" custom-timeline rounded-lg  ">
         <ol className="grid grid-cols-4 gap-4">
-          {notes?.map((note: any) => (
-            <Link href={`/document/${note.id}`}>
+          {notes?.map((note: any, index: any) => (
+            <Link href={`/document/${note.id}`} key={index}>
               <li>
                 <a
                   href="#"

@@ -6,7 +6,7 @@ import { RootState } from '@/state/store';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-const index = () => {
+const Index = () => {
   const { createNote, noteName, setNoteName, notes } = useAllNotesByid();
   return (
     <DashboardLayout>
@@ -20,4 +20,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
