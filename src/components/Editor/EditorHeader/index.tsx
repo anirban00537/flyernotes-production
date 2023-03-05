@@ -60,7 +60,7 @@ const EditorHeader = ({ notesDetails, id }: any) => {
             <input
               type="text"
               placeholder="Add tag"
-              className="mr-2 rounded-md border-0 p-0 text-base text-gray-900 focus:border-blue-500 pl-3 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+              className="mr-2 rounded- border-0 p-0 text-base text-gray-900 focus:border-blue-500 pl-3 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
               value={tagName}
               onBlur={() => {
                 if (!tagName) {
