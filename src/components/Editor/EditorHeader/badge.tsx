@@ -4,7 +4,7 @@ const Badge = ({ title, deleteTag, id }: any) => {
   return (
     <span
       id="badge-dismiss-gray"
-      className="mr-2 inline-flex items-center rounded bg-gray-100 px-2 py-1 text-sm font-medium text-gray-800 dark:bg-gray-900 dark:text-gray-300"
+      className="mr-2 inline-flex items-center m-1 rounded bg-gray-100 px-2 py-1 text-sm font-medium text-gray-800 dark:bg-gray-900 dark:text-gray-300"
     >
       {title}
       <button

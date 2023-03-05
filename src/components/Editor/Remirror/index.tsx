@@ -1,4 +1,4 @@
-import '@remirror/styles/all.css';
+import "@remirror/styles/all.css";
 import {
   BoldExtension,
   HeadingExtension,
@@ -22,7 +22,7 @@ import {
   ImageExtension,
   SubExtension,
   SupExtension,
-} from 'remirror/extensions';
+} from "remirror/extensions";
 import {
   BasicFormattingButtonGroup,
   HeadingLevelButtonGroup,
@@ -49,20 +49,20 @@ import {
   InsertHorizontalRuleButton,
   ToggleSubscriptButton,
   ToggleSuperscriptButton,
-} from '@remirror/react';
-import { AllStyledComponent } from '@remirror/styles/emotion';
-import { useCallback, useEffect, useState } from 'react';
-import moment from 'moment';
-import { useNoteEditor } from '@/state/hooks/notes.hook';
-import { useDebounce } from 'use-debounce';
-import EditorHeader from '../EditorHeader';
+} from "@remirror/react";
+import { AllStyledComponent } from "@remirror/styles/emotion";
+import { useCallback, useEffect, useState } from "react";
+import moment from "moment";
+import { useNoteEditor } from "@/state/hooks/notes.hook";
+import { useDebounce } from "use-debounce";
+import EditorHeader from "../EditorHeader";
 const TWO_COLUMNS: ColumnAttributes = {
   count: 2,
-  fill: 'balance',
-  ruleColor: 'darkred',
-  ruleStyle: 'dashed',
-  ruleWidth: 'thick',
-  gap: '5em',
+  fill: "balance",
+  ruleColor: "darkred",
+  ruleStyle: "dashed",
+  ruleWidth: "thick",
+  gap: "5em",
 };
 const THREE_COLUMNS: ColumnAttributes = {
   count: 3,
@@ -98,7 +98,7 @@ const Collapsible = ({ notesDetails, id }: any): JSX.Element => {
       new SupExtension(),
       ...wysiwygPreset(),
     ],
-    [],
+    []
   );
   useEffect(() => {
     updateNote(id, value);
@@ -106,59 +106,63 @@ const Collapsible = ({ notesDetails, id }: any): JSX.Element => {
   const { manager, state } = useRemirror({
     extensions,
     content: notesDetails?.content ? notesDetails?.content : content,
-    selection: 'end',
-    stringHandler: 'html',
+    selection: "end",
+    stringHandler: "html",
   });
 
   return (
     <div className="m-5">
-      <EditorHeader notesDetails={notesDetails} id={id} />
-      <AllStyledComponent>
-        <ThemeProvider>
-          <Remirror
-            manager={manager}
-            initialContent={state}
-            autoFocus
-            autoRender="end"
-          >
-            <Toolbar>
-              <HistoryButtonGroup />
-              <BasicFormattingButtonGroup />
-              <HeadingLevelButtonGroup showAll />
-              <ListButtonGroup />
-              <ToggleStrikeButton />
-              <ToggleCodeBlockButton />
-              <ToggleCalloutButton />
-              <ToggleSubscriptButton />
-              <ToggleSuperscriptButton />
-              <ToggleColumnsButton attrs={TWO_COLUMNS} />
-              <ToggleColumnsButton attrs={THREE_COLUMNS} />
-              <FontFamilyButtons />
-              <InsertHorizontalRuleButton />
-              {/* <DecreaseFontSizeButton /> */}
-              <OnChangeJSON
-                onChange={(e: any) => {
-                  // setTimeout(() => {
-                  //   updateNote(id, e);
-                  // }, 1000);
-                  setContent(e);
-                }}
-              />
+      {notesDetails?.name && (
+        <EditorHeader notesDetails={notesDetails} id={id} />
+      )}
+      {notesDetails && (
+        <AllStyledComponent>
+          <ThemeProvider>
+            <Remirror
+              manager={manager}
+              initialContent={state}
+              autoFocus
+              autoRender="end"
+            >
+              <Toolbar>
+                <HistoryButtonGroup />
+                <BasicFormattingButtonGroup />
+                <HeadingLevelButtonGroup showAll />
+                <ListButtonGroup />
+                <ToggleStrikeButton />
+                <ToggleCodeBlockButton />
+                <ToggleCalloutButton />
+                <ToggleSubscriptButton />
+                <ToggleSuperscriptButton />
+                <ToggleColumnsButton attrs={TWO_COLUMNS} />
+                <ToggleColumnsButton attrs={THREE_COLUMNS} />
+                <FontFamilyButtons />
+                <InsertHorizontalRuleButton />
+                {/* <DecreaseFontSizeButton /> */}
+                <OnChangeJSON
+                  onChange={(e: any) => {
+                    // setTimeout(() => {
+                    //   updateNote(id, e);
+                    // }, 1000);
+                    setContent(e);
+                  }}
+                />
 
-              <CmdMenu />
-              {/* <CreateTableButton /> */}
-            </Toolbar>
-          </Remirror>
-        </ThemeProvider>
-      </AllStyledComponent>
+                <CmdMenu />
+                {/* <CreateTableButton /> */}
+              </Toolbar>
+            </Remirror>
+          </ThemeProvider>
+        </AllStyledComponent>
+      )}
     </div>
   );
 };
-const FONT_FAMILIES: Array<[React.CSSProperties['fontFamily'], string]> = [
-  ['serif', 'Serif'],
-  ['sans-serif', 'San serif'],
-  ['cursive', 'Cursive'],
-  ['fantasy', 'Fantasy'],
+const FONT_FAMILIES: Array<[React.CSSProperties["fontFamily"], string]> = [
+  ["serif", "Serif"],
+  ["sans-serif", "San serif"],
+  ["cursive", "Cursive"],
+  ["fantasy", "Fantasy"],
 ];
 
 const FontFamilyButtons = () => {
@@ -190,8 +194,8 @@ function CmdMenu() {
     ignoreNextExit,
     addIgnored,
   } = useSuggest({
-    char: '/',
-    name: 'command',
+    char: "/",
+    name: "command",
   });
 
   const [enabled, setEnabled] = useState(false);
