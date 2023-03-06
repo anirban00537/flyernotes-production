@@ -2,7 +2,7 @@ import { useState } from "react";
 import { GoChevronDown, GoChevronUp } from "react-icons/go";
 import { BiDockBottom } from "react-icons/bi";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
-import AddNoteBook from "@/components/AlterSidebar/AddModals/AddNotebook";
+import AddNoteBook from "@/components/Sidebar/AddModals/AddNotebook";
 import Link from "next/link";
 
 const NoteBookCollapse = ({ notebooks }: any) => {
