@@ -41,18 +41,18 @@ export const useCheckAuthState = () => {
   const router = useRouter();
   useEffect(() => {
     dispatch(setLoading(true));
-    return auth.onIdTokenChanged(async (user) => {
+    return auth.onAuthStateChanged(async (user) => {
       if (!user) {
         await setUser(null);
-        await nookies.set(undefined, 'token', '', { path: '/' });
+        await nookies.set(undefined, "token", "", { path: "/" });
         if (AuthRoute.includes(router.asPath)) {
-          await router.push('/signin');
+          await router.push("/signin");
         }
         dispatch(setLoading(false));
       } else {
         const token = await user.getIdToken();
         await setUser(user);
-        await nookies.set(undefined, 'token', token, { path: '/' });
+        await nookies.set(undefined, "token", token, { path: "/" });
         const GlobalNotebooksData = await InitialNotebooks(user);
         await dispatch(setNotebooks(GlobalNotebooksData));
         dispatch(setLoading(false));
