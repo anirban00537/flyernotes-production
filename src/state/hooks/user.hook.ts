@@ -1,19 +1,19 @@
-import { auth } from '@/database/firebase';
+import { auth } from "@/database/firebase";
 import {
   GoogleAuthProvider,
   browserSessionPersistence,
   getAuth,
   signInWithPopup,
   signOut,
-} from 'firebase/auth';
-import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../store';
-import { useEffect, useState } from 'react';
-import { setLoading, setNotebooks, setNotes } from '../reducer/notebookSlice';
-import nookies from 'nookies';
-import { AuthRoute } from '@/utils/core-constant';
-import { InitialNotebooks } from './notebook.hook';
+} from "firebase/auth";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
+import { useEffect, useState } from "react";
+import { setLoading, setNotebooks, setNotes } from "../reducer/notebookSlice";
+import nookies from "nookies";
+import { AuthRoute, PublicRoute } from "@/utils/core-constant";
+import { InitialNotebooks } from "./notebook.hook";
 
 export const useLogin = () => {
   const router = useRouter();
@@ -27,7 +27,7 @@ export const useLogin = () => {
       await auth.setPersistence(browserSessionPersistence);
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      router.push('/dashboard');
+      router.push("/dashboard");
     } catch (e: any) {}
   };
 
@@ -43,20 +43,19 @@ export const useCheckAuthState = () => {
     dispatch(setLoading(true));
     return auth.onAuthStateChanged(async (user) => {
       if (!user) {
-        await setUser(null);
-        await nookies.set(undefined, "token", "", { path: "/" });
-        if (AuthRoute.includes(router.asPath)) {
+        if (!PublicRoute.includes(router.asPath)) {
           await router.push("/signin");
         }
-        dispatch(setLoading(false));
+        await setUser(null);
+        await nookies.set(undefined, "token", "", { path: "/" });
       } else {
         const token = await user.getIdToken();
         await setUser(user);
         await nookies.set(undefined, "token", token, { path: "/" });
         const GlobalNotebooksData = await InitialNotebooks(user);
         await dispatch(setNotebooks(GlobalNotebooksData));
-        dispatch(setLoading(false));
       }
+      dispatch(setLoading(false));
     });
   }, [router.asPath]);
   // force refresh the token every 10 minutes
