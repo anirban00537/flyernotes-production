@@ -48,17 +48,19 @@ export const useCheckAuthState = () => {
   const dispatch = useDispatch();
   const [user, setUser] = useState<any>(null);
   const router = useRouter();
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+  const guard = async () => {
+    await dispatch(setLoading(true));
+    const unsubscribe = await auth.onAuthStateChanged(async (user) => {
       if (!user) {
         await setUser(null);
-        nookies.set(null, "token", "", { path: "/" });
+        await nookies.set(null, "token", "", { path: "/" });
         if (!PublicRoute.includes(router.asPath)) {
-          router.push("/signin");
+          await router.push("/signin");
         }
         await setUser(null);
         await nookies.set(undefined, "token", "", { path: "/" });
+        await dispatch(setLoading(false));
+        return;
       } else {
         const token = await user.getIdToken();
         nookies.set(null, "token", token, { path: "/" });
@@ -67,10 +69,12 @@ export const useCheckAuthState = () => {
         setUser(user);
         dispatch(setLoading(false));
       }
-      dispatch(setLoading(false));
     });
     return () => unsubscribe();
-  }, []);
+  };
+  useEffect(() => {
+    guard();
+  }, [router.asPath]);
 
   // force refresh the token every 10 minutes
   useEffect(() => {
