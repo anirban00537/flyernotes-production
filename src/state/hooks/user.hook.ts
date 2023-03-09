@@ -1,6 +1,7 @@
 import { auth } from "@/database/firebase";
 import {
   GoogleAuthProvider,
+  browserLocalPersistence,
   browserSessionPersistence,
   getAuth,
   signInWithPopup,
@@ -29,11 +30,13 @@ export const useLogin = () => {
   const handleLogin = async () => {
     const auth = getAuth();
     try {
-      await auth.setPersistence(browserSessionPersistence);
+      // Set the persistence to "local" to remember the user's login state even after they close the browser
+      await auth.setPersistence(browserLocalPersistence);
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const token = await result.user.getIdToken();
-      nookies.set(null, "token", token, { path: "/" });
+      // Set the cookie to expire in 7 days
+      nookies.set(null, "token", token, { path: "/", maxAge: 604800 });
       router.push("/dashboard");
     } catch (e) {
       setErrorMessage("Failed to login. Please try again.");
