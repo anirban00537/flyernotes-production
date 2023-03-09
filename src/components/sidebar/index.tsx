@@ -13,8 +13,8 @@ const SidebarComponent = () => {
       className=" height-full sticky top-0 h-screen border-r bg-white p-2 pt-0 "
       aria-label="Sidebar"
       style={{
-        minWidth: '300px',
-        maxWidth: '300px',
+        minWidth: "300px",
+        maxWidth: "300px",
       }}
     >
       <div className="overflow-y-auto py-4 px-2 ">
@@ -31,6 +31,7 @@ const SidebarComponent = () => {
             </li>
           </Link>
           <NoteBookCollapse notebooks={notebooks} />
+          <button onClick={logout}>Logout</button>
         </ul>
       </div>
     </aside>
