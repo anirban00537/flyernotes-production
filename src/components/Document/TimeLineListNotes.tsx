@@ -1,31 +1,12 @@
-import { RootState } from '@/state/store';
-import React from 'react';
-import Link from 'next/link';
-import { TbWallpaper } from 'react-icons/tb';
-import { useSelector } from 'react-redux';
+import React from "react";
+import CardComponent from "../Card/index.comp";
 const TimeLineListNotes = ({ notes }: any) => {
   return (
     <div className="">
       <div className=" custom-timeline rounded-lg  ">
         <ol className="grid grid-cols-4 gap-4">
           {notes?.map((note: any, index: any) => (
-            <Link href={`/document/${note.id}`} key={index}>
-              <li>
-                <a
-                  href="#"
-                  className="block items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700 sm:flex"
-                >
-                  <TbWallpaper className="mr-5" color="purple" />
-                  <div className="text-gray-600 dark:text-gray-400">
-                    <div className="text-base font-normal">
-                      <span className="font-medium text-gray-900 dark:text-white">
-                        {note?.data?.name}
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-            </Link>
+            <CardComponent note={note} key={index} />
           ))}
         </ol>
       </div>

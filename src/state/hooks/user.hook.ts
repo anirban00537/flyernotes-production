@@ -12,26 +12,35 @@ import { RootState } from "../store";
 import { useEffect, useState } from "react";
 import { setLoading, setNotebooks, setNotes } from "../reducer/notebookSlice";
 import nookies from "nookies";
-import { AuthRoute, PublicRoute } from "@/utils/core-constant";
+import { PublicRoute } from "@/utils/core-constant";
 import { InitialNotebooks } from "./notebook.hook";
 
 export const useLogin = () => {
   const router = useRouter();
-  function logout() {
-    nookies.destroy;
+  const dispatch = useDispatch();
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const logout = () => {
+    nookies.destroy(null, "token");
     signOut(auth);
-  }
+    router.push("/");
+  };
+
   const handleLogin = async () => {
     const auth = getAuth();
     try {
       await auth.setPersistence(browserSessionPersistence);
       const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(auth, provider);
+      const token = await result.user.getIdToken();
+      nookies.set(null, "token", token, { path: "/" });
       router.push("/dashboard");
-    } catch (e: any) {}
+    } catch (e) {
+      setErrorMessage("Failed to login. Please try again.");
+    }
   };
 
-  return { handleLogin, logout };
+  return { handleLogin, logout, errorMessage };
 };
 
 export const useCheckAuthState = () => {
@@ -39,25 +48,30 @@ export const useCheckAuthState = () => {
   const dispatch = useDispatch();
   const [user, setUser] = useState<any>(null);
   const router = useRouter();
+
   useEffect(() => {
-    dispatch(setLoading(true));
-    return auth.onAuthStateChanged(async (user) => {
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
       if (!user) {
+        await setUser(null);
+        nookies.set(null, "token", "", { path: "/" });
         if (!PublicRoute.includes(router.asPath)) {
-          await router.push("/signin");
+          router.push("/signin");
         }
         await setUser(null);
         await nookies.set(undefined, "token", "", { path: "/" });
       } else {
         const token = await user.getIdToken();
-        await setUser(user);
-        await nookies.set(undefined, "token", token, { path: "/" });
+        nookies.set(null, "token", token, { path: "/" });
         const GlobalNotebooksData = await InitialNotebooks(user);
-        await dispatch(setNotebooks(GlobalNotebooksData));
+        dispatch(setNotebooks(GlobalNotebooksData));
+        setUser(user);
+        dispatch(setLoading(false));
       }
       dispatch(setLoading(false));
     });
-  }, [router.asPath]);
+    return () => unsubscribe();
+  }, []);
+
   // force refresh the token every 10 minutes
   useEffect(() => {
     const handle = setInterval(async () => {
@@ -69,4 +83,26 @@ export const useCheckAuthState = () => {
   }, []);
 
   return { loading, user };
+};
+
+export const useRequireAuth = () => {
+  const router = useRouter();
+  const { user, loading } = useCheckAuthState();
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push("/signin");
+    }
+  }, [loading, user, router]);
+  return { user, loading };
+};
+
+export const useRequireNoAuth = () => {
+  const router = useRouter();
+  const { user, loading } = useCheckAuthState();
+  useEffect(() => {
+    if (!loading && user) {
+      router.push("/dashboard");
+    }
+  }, [loading, user, router]);
+  return { user, loading };
 };

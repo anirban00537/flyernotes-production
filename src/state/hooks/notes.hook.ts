@@ -4,13 +4,11 @@ import {
   collection,
   addDoc,
   getDocs,
-  getDocFromCache,
   doc,
   query,
   where,
   getDoc,
   updateDoc,
-  getDocsFromCache,
 } from "firebase/firestore";
 //@ts-ignore
 import { useRouter } from "next/router";
@@ -93,7 +91,7 @@ export const useGetNotes = () => {
   const getNoteDetails = async () => {
     //@ts-ignore
     const docRef = doc(db, "notes", id);
-    const snapshot = await getDocFromCache(docRef);
+    const snapshot = await getDoc(docRef);
     console.log(snapshot?.data()?.user_id === user?.uid, "snapshot.data()");
     if (snapshot?.data()?.user_id === user?.uid) {
       setNotesDetails(snapshot.data());
