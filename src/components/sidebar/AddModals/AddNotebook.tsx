@@ -1,7 +1,7 @@
-import { useAddNoteBook } from '@/state/hooks/notebook.hook';
-import { Button, Label, Modal, TextInput } from 'flowbite-react';
-import React, { useState } from 'react';
-import { VscAdd } from 'react-icons/vsc';
+import { useAddNoteBook } from "@/state/hooks/notebook.hook";
+import { Button, Label, Modal, TextInput } from "flowbite-react";
+import React, { useState } from "react";
+import { VscAdd } from "react-icons/vsc";
 
 const AddNoteBook = () => {
   const [show, setShow] = useState(false);
@@ -34,17 +34,16 @@ const AddNoteBook = () => {
                 Enter Notebook name
               </h3>
               <div>
-                <div className="mb-2 block">
-                  <Label htmlFor="email" value="Note title" />
-                </div>
-                <TextInput
-                  id="Text"
+                <input
+                  type="text"
+                  id="field_name"
                   placeholder="Office work"
                   value={notebookName}
                   onChange={(e: any) => {
                     setNotebookName(e.target.value);
                   }}
-                  required={true}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
                 />
               </div>
               <div className="w-full">
