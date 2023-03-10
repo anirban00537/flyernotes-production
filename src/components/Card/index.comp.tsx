@@ -9,10 +9,10 @@ const CardComponent = ({ note }: any) => {
   return (
     <Link href={`/document/${note.id}`}>
       <li className="border rounded-lg  hover:bg-gray-100 dark:hover:bg-gray-700 sm:flex">
-        <a href="#" className="block items-center p-3 ">
+        <a href="#" className="block items-center p-5 w-full">
           <div className=" text-gray-600 dark:text-gray-400">
-            <div className="flex items-center  text-base font-normal">
-              <TbWallpaper className="mr-2 text-gray-600"  />
+            <div className="flex items-center  text-xl font-normal">
+              <TbWallpaper className="mr-2 text-gray-600" />
               <span className="font-semibold text-gray-600 dark:text-white">
                 {note?.data?.name}
               </span>
