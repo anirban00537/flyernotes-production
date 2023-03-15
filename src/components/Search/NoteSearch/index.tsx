@@ -31,7 +31,7 @@ const NoteSearch = () => {
           type="search"
           id="default-search"
           className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-purple-500 focus:border-purple-500 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
-          placeholder="Search Mockups, Logos..."
+          placeholder="Search Notes..."
           required
         />
         <button

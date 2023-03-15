@@ -6,6 +6,7 @@ const Banner = () => {
     <div>
       <div className="isolate bg-white">
         <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
+          {/* <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" /> */}
           {/* <svg
             className="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
             viewBox="0 0 1155 678"
@@ -41,7 +42,7 @@ const Banner = () => {
               <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
                 <a href="#" className="-m-1.5 p-1.5">
                   <span className="sr-only">FlyerNotes</span>
-                  <img className="h-20" src="/logo.png" alt="" />
+                  <img className="h-16" src="/nav-logo.png" alt="" />
                 </a>
               </div>
               <div className="flex lg:hidden">
@@ -68,51 +69,24 @@ const Banner = () => {
                   </svg>
                 </button>
               </div>
-              <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
-                <a
-                  href="#"
-                  className="font-semibold text-gray-900 hover:text-gray-900"
-                >
-                  Product
-                </a>
-                <a
-                  href="#"
-                  className="font-semibold text-gray-900 hover:text-gray-900"
-                >
-                  Features
-                </a>
-                <a
-                  href="#"
-                  className="font-semibold text-gray-900 hover:text-gray-900"
-                >
-                  Marketplace
-                </a>
-                <a
-                  href="#"
-                  className="font-semibold text-gray-900 hover:text-gray-900"
-                >
-                  Company
-                </a>
-              </div>
               <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
-                <a
-                  href="#"
-                  className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20"
-                >
-                  Log in
-                </a>
+                <Link href="/signin">
+                  <div className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                    Log in
+                  </div>
+                </Link>
               </div>
             </nav>
           </div>
         </div>
         <main>
           <div className="relative px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
+            <div className="mx-auto max-w-3xl  pb-10 sm:pt-48 sm:pb-40">
               <div>
                 <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                   <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                     <span className="text-gray-600">
-                      Announcing our next round of funding.{" "}
+                      Under development - please check back soon!{" "}
                       <a href="#" className="font-semibold text-purple-600">
                         <span className="absolute inset-0" aria-hidden="true" />
                         Read more <span aria-hidden="true">→</span>
@@ -121,8 +95,8 @@ const Banner = () => {
                   </div>
                 </div>
                 <div>
-                  <h1 className="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">
-                    Note-taking made simple - Never miss a thought
+                  <h1 className="text-3xl font-bold tracking-tight sm:text-center sm:text-6xl">
+                    Note Taking Made Simple, Never Miss A Thought
                   </h1>
                   <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-center">
                     Transform the way you take notes with FlyerNotes.
