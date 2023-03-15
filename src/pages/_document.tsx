@@ -14,25 +14,11 @@ export default function Document() {
           name="keywords"
           content="note, flyernotes, flynotes, easy, note, taking, brain, clean, good, free"
         />
-        <meta name="author" content="Your Name" />
+        <meta name="author" content="Anirban Roy" />
         <link rel="icon" href="/logo.png" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/logo.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/logo.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <title>Flyernotes</title>
         <meta property="og:title" content="Flyernotes" />
