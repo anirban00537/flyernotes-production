@@ -41,12 +41,8 @@ const Banner = () => {
             >
               <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
                 <a href="#" className="-m-1.5 p-1.5">
-                  <span className="sr-only">Your Company</span>
-                  <img
-                    className="h-8"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                    alt=""
-                  />
+                  <span className="sr-only">FlyerNotes</span>
+                  <img className="h-20" src="/logo.png" alt="" />
                 </a>
               </div>
               <div className="flex lg:hidden">
@@ -120,7 +116,7 @@ const Banner = () => {
                       <span className="sr-only">Your Company</span>
                       <img
                         className="h-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                        src="https://tailwindui.com/img/logos/mark.svg?color=purple&shade=600"
                         alt=""
                       />
                     </a>
@@ -200,7 +196,7 @@ const Banner = () => {
                   <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                     <span className="text-gray-600">
                       Announcing our next round of funding.{" "}
-                      <a href="#" className="font-semibold text-indigo-600">
+                      <a href="#" className="font-semibold text-purple-600">
                         <span className="absolute inset-0" aria-hidden="true" />
                         Read more <span aria-hidden="true">→</span>
                       </a>
@@ -222,10 +218,10 @@ const Banner = () => {
                     <Link href="/dashboard">
                       <button
                         // href="#"
-                        className="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
+                        className="inline-block rounded-lg bg-purple-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-purple-600 hover:bg-purple-700 hover:ring-purple-700"
                       >
                         Get started
-                        <span className="text-indigo-200" aria-hidden="true">
+                        <span className="text-purple-200" aria-hidden="true">
                           →
                         </span>
                       </button>
