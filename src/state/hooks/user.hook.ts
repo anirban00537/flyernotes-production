@@ -37,7 +37,7 @@ export const useLogin = () => {
       const token = await result.user.getIdToken();
       // Set the cookie to expire in 7 days
       nookies.set(null, "token", token, { path: "/", maxAge: 604800 });
-      router.push("/dashboard");
+      router.push("/all");
     } catch (e) {
       setErrorMessage("Failed to login. Please try again.");
     }
@@ -108,7 +108,7 @@ export const useRequireNoAuth = () => {
   const { user, loading } = useCheckAuthState();
   useEffect(() => {
     if (!loading && user) {
-      router.push("/dashboard");
+      router.push("/all");
     }
   }, [loading, user, router]);
   return { user, loading };

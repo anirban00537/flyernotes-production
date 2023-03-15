@@ -29,10 +29,10 @@ const CardComponent = ({ note }: any) => {
                     <Badge key={index} cross={false} title={tag} id={null} />
                   )
               )}
-              {note?.data?.tags.length > 3 && (
+              {note?.data?.tags?.length > 3 && (
                 <Badge
                   key={1}
-                  title={note?.data?.tags.length - 3 + " more"}
+                  title={note?.data?.tags?.length - 3 + " more"}
                   id={null}
                   cross={false}
                 />

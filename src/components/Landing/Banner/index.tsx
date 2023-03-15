@@ -132,7 +132,7 @@ const Banner = () => {
                     sign up today.
                   </p>
                   <div className="mt-8 flex gap-x-4 sm:justify-center">
-                    <Link href="/dashboard">
+                    <Link href="/all">
                       <button
                         // href="#"
                         className="inline-block rounded-lg bg-purple-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-purple-600 hover:bg-purple-700 hover:ring-purple-700"
