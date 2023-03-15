@@ -19,14 +19,14 @@ const SidebarComponent = () => {
       {isCollapsed ? "Collapsed" : "Not collapsed"}
       <div className="overflow-y-auto py-4 px-2 ">
         <ul className="space-y-2 pl-0">
-          <Link href="/dashboard">
+          <Link href="/all">
             <li>
               <a
                 href="#"
                 className="font-norma5 grou flex w-full  items-center rounded-lg p-1 pl-2 text-sm text-gray-800 transition duration-75"
               >
                 <BiHomeAlt />
-                <span className="ml-3 flex-1 whitespace-nowrap">Dashboard</span>
+                <span className="ml-3 flex-1 whitespace-nowrap">All Notes</span>
               </a>
             </li>
           </Link>

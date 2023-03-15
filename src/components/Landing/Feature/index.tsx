@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Feature = () => {
   return (
@@ -6,21 +6,22 @@ const Feature = () => {
       <div className="bg-white py-24 sm:py-32 lg:py-40">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="sm:text-center">
-            <h2 className="text-lg font-semibold leading-8 text-indigo-600">
-              Transactions
+            <h2 className="text-lg font-semibold leading-8 text-purple-600">
+              NOTETAKING
             </h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              A better way to send money
+              A better way to take note's
             </p>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-              Lorem ipsum dolor sit amet consect adipisicing elit. Possimus
-              magnam voluptatum cupiditate veritatis in accusamus quisquam.
+              Take note-taking to the next level with FlyerNotes.com. Our simple
+              and intuitive app makes it easy to capture your ideas, organize
+              your thoughts, and boost your productivity.
             </p>
           </div>
           <div className="mt-20 max-w-lg sm:mx-auto md:max-w-none">
             <div className="grid grid-cols-1 gap-y-16 md:grid-cols-2 md:gap-x-12 md:gap-y-16">
               <div className="relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500 text-white sm:shrink-0">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500 text-white sm:shrink-0">
                   {/* Heroicon name: outline/globe-alt */}
                   <svg
                     className="h-8 w-8"
@@ -40,17 +41,20 @@ const Feature = () => {
                 </div>
                 <div className="sm:min-w-0 sm:flex-1">
                   <p className="text-lg font-semibold leading-8 text-gray-900">
-                    Competitive exchange rates
+                    Streamline your workflow with our powerful organizational
+                    tools
                   </p>
                   <p className="mt-2 text-base leading-7 text-gray-600">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Maiores impedit perferendis suscipit eaque, iste dolor
-                    cupiditate blanditiis ratione.
+                    With FlyerNotes, you can streamline your workflow and
+                    increase productivity with our powerful organizational
+                    tools. Our intuitive app makes it easy to keep all your
+                    notes organized and accessible, so you can focus on what's
+                    important.
                   </p>
                 </div>
               </div>
               <div className="relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500 text-white sm:shrink-0">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500 text-white sm:shrink-0">
                   {/* Heroicon name: outline/scale */}
                   <svg
                     className="h-8 w-8"
@@ -70,17 +74,20 @@ const Feature = () => {
                 </div>
                 <div className="sm:min-w-0 sm:flex-1">
                   <p className="text-lg font-semibold leading-8 text-gray-900">
-                    No hidden fees
+                    Access your notes from anywhere, on any device, with our
+                    cloud-based platform
                   </p>
                   <p className="mt-2 text-base leading-7 text-gray-600">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Maiores impedit perferendis suscipit eaque, iste dolor
-                    cupiditate blanditiis ratione.
+                    Never be without your notes again with FlyerNotes.com. Our
+                    cloud-based platform allows you to access your notes from
+                    anywhere, on any device. Whether you're at home, in the
+                    office, or on the go, you'll always have your notes at your
+                    fingertips
                   </p>
                 </div>
               </div>
               <div className="relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500 text-white sm:shrink-0">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500 text-white sm:shrink-0">
                   {/* Heroicon name: outline/bolt */}
                   <svg
                     className="h-8 w-8"
@@ -100,17 +107,21 @@ const Feature = () => {
                 </div>
                 <div className="sm:min-w-0 sm:flex-1">
                   <p className="text-lg font-semibold leading-8 text-gray-900">
-                    Transfers are instant
+                    Collaborate with others in real-time, improving teamwork and
+                    communication
                   </p>
                   <p className="mt-2 text-base leading-7 text-gray-600">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Maiores impedit perferendis suscipit eaque, iste dolor
-                    cupiditate blanditiis ratione.
+                    Collaboration is key to success, and with FlyerNotes.com,
+                    it's easier than ever. Our real-time collaboration tools
+                    make it easy to work with others, improving teamwork and
+                    communication. Whether you're working on a project with
+                    colleagues or sharing notes with classmates, FlyerNotes.com
+                    has you covered
                   </p>
                 </div>
               </div>
               <div className="relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500 text-white sm:shrink-0">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500 text-white sm:shrink-0">
                   {/* Heroicon name: outline/device-phone-mobile */}
                   <svg
                     className="h-8 w-8"
@@ -130,12 +141,15 @@ const Feature = () => {
                 </div>
                 <div className="sm:min-w-0 sm:flex-1">
                   <p className="text-lg font-semibold leading-8 text-gray-900">
-                    Mobile notifications
+                    Customize your notes with rich formatting options, enhancing
+                    readability and comprehension
                   </p>
                   <p className="mt-2 text-base leading-7 text-gray-600">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Maiores impedit perferendis suscipit eaque, iste dolor
-                    cupiditate blanditiis ratione.
+                    Customize your notes to your liking with FlyerNotes.com. Our
+                    rich formatting options make it easy to enhance readability
+                    and comprehension, ensuring that your notes are clear and
+                    easy to understand. With FlyerNotes.com, you'll be able to
+                    take your note-taking to the next level.
                   </p>
                 </div>
               </div>
@@ -145,6 +159,6 @@ const Feature = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Feature
+export default Feature;
