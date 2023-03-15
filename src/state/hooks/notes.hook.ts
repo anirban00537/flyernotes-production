@@ -130,6 +130,7 @@ export const useInitialAllNotes = () => {
 export const useAllNotesByid = () => {
   const [noteName, setNoteName] = useState("");
   const [notes, setNotes] = useState([]);
+  const [notebook, setNotebook] = useState<any>();
   const router = useRouter();
   const user: any = useAuth();
 
@@ -137,11 +138,17 @@ export const useAllNotesByid = () => {
   const GlobalNotesData: any = [];
   const getNotes = async () => {
     const notesRef = await collection(db, "notes");
+    const notebookRef = await doc(db, "notebooks", String(notebook_id));
     let noteQuery = query(
       notesRef,
       where("notebook_id", "==", notebook_id),
       where("user_id", "==", user.uid)
     );
+    const notebookSnap = await getDoc(notebookRef);
+    if (notebookSnap.exists()) {
+      console.log(notebookSnap.data(), "notebook snaop");
+      setNotebook(notebookSnap.data());
+    }
 
     const Notes = await getDocs(noteQuery);
     await Notes.forEach((doc) => {
@@ -173,5 +180,5 @@ export const useAllNotesByid = () => {
   useEffect(() => {
     user?.uid && getNotes();
   }, [user]);
-  return { noteName, setNoteName, createNote, notes };
+  return { noteName, setNoteName, createNote, notes, notebook };
 };

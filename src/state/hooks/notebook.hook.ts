@@ -26,7 +26,6 @@ export const useAddNoteBook = () => {
         user_id: user.uid,
       };
       const response = await addDoc(collection(db, "notebooks"), preparedDoc);
-      console.log(response.id);
       router.push("/notebook/" + response.id);
     } catch (error) {
       console.log(error);

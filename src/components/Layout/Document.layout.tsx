@@ -13,10 +13,11 @@ const DocumentLayout = ({ children, title = 'Flyernotes' }: LayoutProps) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div className="flex">
-        <SidebarComponent />
-        <div className='flex w-full items-center justify-center'>{children}</div>
-        {/* <EndSidebar /> */}
+      <div className="grid grid-cols-12 gap-4">
+        {/* <div className="col-span-2">
+          <SidebarComponent />
+        </div> */}
+        <div className="col-span-12 flex items-center w-full justify-center">{children}</div>
       </div>
     </>
   );

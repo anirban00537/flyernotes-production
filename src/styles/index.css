@@ -61,3 +61,7 @@ div::-webkit-scrollbar {
 .css-15feu8x .remirror-theme .ProseMirror{
   padding: 0px !important;
 }
+.MuiStack-root{
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -42,9 +42,9 @@ const EditorHeader = ({ notesDetails, id }: any) => {
           Share{" "}
         </button>
       </div>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap items-center">
         {tags.map((tag: string, index: number) => (
-          <Badge key={index} title={tag} deleteTag={deleteTag} id={id} />
+          <Badge key={index} title={tag} deleteTag={deleteTag} id={id}  />
         ))}
         <form
           className="mt-2"

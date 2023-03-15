@@ -10,11 +10,11 @@ const NoteBookCollapse = ({ notebooks }: any) => {
     <li>
       <button
         type="button"
-        className="grou flex w-full items-center rounded-lg p-1 pl-2 text-sm font-normal text-gray-800 transition duration-75  "
+        className="grou flex w-full items-center rounded-lg p-1 pl-2 text-sm font-normal text-gray-800 transition duration-75"
         aria-controls="dropdown-example"
         data-collapse-toggle="dropdown-example"
       >
-        <span className=" flex-1 whitespace-nowrap text-left text-lg text-gray-900">
+        <span className="flex-1 whitespace-nowrap text-left text-lg text-gray-900">
           Notebooks
         </span>
         <AddNoteBook />

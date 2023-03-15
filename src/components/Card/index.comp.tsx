@@ -4,16 +4,15 @@ import React from "react";
 import { TbWallpaper } from "react-icons/tb";
 import Badge from "../Editor/EditorHeader/badge";
 
-const CardComponent = ({ note }: any) => {
-  console.log(note, "The note description");
+const Notecard = ({ note }: any) => {
   return (
     <Link href={`/document/${note.id}`}>
-      <li className="border rounded-lg  hover:bg-gray-100 dark:hover:bg-gray-700 sm:flex">
+      <li className="border rounded-lg sm:flex">
         <a href="#" className="block items-center p-5 w-full">
           <div className=" text-gray-600 dark:text-gray-400">
-            <div className="flex items-center  text-xl font-normal">
-              <TbWallpaper className="mr-2 text-gray-600" />
-              <span className="font-semibold text-gray-600 dark:text-white">
+            <div className="flex items-center  text-2xl font-normal">
+              {/* <TbWallpaper className="mr-2 text-gray-600" /> */}
+              <span className="font-medium text-gray-800 dark:text-white ">
                 {note?.data?.name}
               </span>
             </div>
@@ -45,4 +44,4 @@ const CardComponent = ({ note }: any) => {
   );
 };
 
-export default CardComponent;
+export default Notecard;

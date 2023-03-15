@@ -8,12 +8,13 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const Index = () => {
-  const { createNote, noteName, setNoteName, notes } = useAllNotesByid();
+  const { createNote, noteName, setNoteName, notes, notebook } =
+    useAllNotesByid();
   return (
     <DashboardLayout>
       <div className="flex w-full flex-col">
         <HeadSection />
-        <ToolssectionComponent createNote={createNote} />
+        <ToolssectionComponent createNote={createNote} notebook={notebook} />
         <div className=" w-full">
           {notes && <TimeLineListNotes notes={notes} />}
         </div>
