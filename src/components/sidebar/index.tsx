@@ -13,7 +13,7 @@ const SidebarComponent = () => {
   const { notebooks } = useSelector((state: RootState) => state.notebooklice);
   return (
     <aside
-      className={`height-full sticky top-0 h-screen border-r bg-white p-2 pt-0 w-full`}
+      className={`height-full sticky top-0 h-screen border-r bg-white p-2 pt-0 w-80`}
       aria-label="Sidebar"
     >
       {isCollapsed ? "Collapsed" : "Not collapsed"}
