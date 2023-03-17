@@ -29,7 +29,7 @@ const EditorHeader = ({ notesDetails, id }: any) => {
         <input
           type="text"
           id="default-input"
-          className="m-0  mr-2 block w-full rounded-md border-0 px-2 text-3xl text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+          className="m-0  mr-2 block w-full rounded-md border-0 px-2 text-3xl text-gray-900 focus:border-purple-500 focus:ring-purple-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-purple-500 dark:focus:ring-purple-500"
           value={`${name}`}
           onChange={(e: any) => {
             setName(e.target.value);
@@ -37,7 +37,7 @@ const EditorHeader = ({ notesDetails, id }: any) => {
         />
         <button
           type="button"
-          className="rounded-lg bg-blue-700 px-3 py-2 text-center text-xs font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="rounded-lg bg-purple-500 px-3 py-2 text-center text-xs font-medium text-white hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
         >
           Share{" "}
         </button>
@@ -60,7 +60,7 @@ const EditorHeader = ({ notesDetails, id }: any) => {
             <input
               type="text"
               placeholder="Add tag"
-              className="mr-2 rounded- border-0 p-0 text-base text-gray-900 focus:border-blue-500 pl-3 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+              className="mr-2 rounded- border-0 p-0 text-base text-gray-900 focus:border-purple-500 pl-3 focus:ring-purple-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-purple-500 dark:focus:ring-purple-500"
               value={tagName}
               onBlur={() => {
                 if (!tagName) {

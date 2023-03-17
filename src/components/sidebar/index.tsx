@@ -5,10 +5,8 @@ import { useLogin } from "@/state/hooks/user.hook";
 import { useSelector } from "react-redux";
 import { RootState } from "@/state/store";
 import Link from "next/link";
-import useSidebarCollapse from "@/state/hooks/common.hook";
 
 const SidebarComponent = () => {
-  const isCollapsed = useSidebarCollapse();
   const { logout } = useLogin();
   const { notebooks } = useSelector((state: RootState) => state.notebooklice);
   return (
@@ -16,10 +14,9 @@ const SidebarComponent = () => {
       className={`height-full sticky top-0 h-screen border-r bg-white p-2 pt-0 w-80`}
       aria-label="Sidebar"
     >
-      {isCollapsed ? "Collapsed" : "Not collapsed"}
       <div className="overflow-y-auto py-4 px-2 ">
         <ul className="space-y-2 pl-0">
-          <Link href="/all">
+          {/* <Link href="/all">
             <li>
               <a
                 href="#"
@@ -29,7 +26,7 @@ const SidebarComponent = () => {
                 <span className="ml-3 flex-1 whitespace-nowrap">All Notes</span>
               </a>
             </li>
-          </Link>
+          </Link> */}
           <NoteBookCollapse notebooks={notebooks} />
           <button onClick={logout}>Logout</button>
         </ul>

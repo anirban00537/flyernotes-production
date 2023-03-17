@@ -1,20 +1,25 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-const useSidebarCollapse = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+const useAutoCollapseSidebar = (breakpoint: number = 768) => {
+  const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
 
+  const toggleSidebar = () => {
+    setSidebarCollapsed(!sidebarCollapsed);
+  };
   useEffect(() => {
     const handleResize = () => {
-      setIsCollapsed(window.innerWidth < 768); // Set collapsed state for screens less than 768px
+      if (window.innerWidth < breakpoint) {
+        setSidebarCollapsed(true);
+      } else {
+        setSidebarCollapsed(false);
+      }
     };
-
-    handleResize();
-
     window.addEventListener("resize", handleResize);
+    handleResize();
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [breakpoint]);
 
-  return isCollapsed;
+  return { sidebarCollapsed, toggleSidebar };
 };
 
-export default useSidebarCollapse;
+export default useAutoCollapseSidebar;

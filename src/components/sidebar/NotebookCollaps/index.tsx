@@ -1,9 +1,8 @@
-import { useState } from "react";
-import { GoChevronDown, GoChevronUp } from "react-icons/go";
 import { BiDockBottom } from "react-icons/bi";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import AddNoteBook from "@/components/sidebar/AddModals/AddNotebook";
 import Link from "next/link";
+import { BiHomeAlt } from "react-icons/bi";
 
 const NoteBookCollapse = ({ notebooks }: any) => {
   return (
@@ -21,6 +20,17 @@ const NoteBookCollapse = ({ notebooks }: any) => {
       </button>
       <ul id="dropdown-example" className="space-y-2 py-2 pl-0">
         <li>
+          <Link href="/all">
+            <div
+              className={`grou flex w-full items-center  p-2  text-sm  text-gray-800 transition duration-75 `}
+            >
+              <BiDockBottom className="mr-2" />
+              <span className=" flex-1 whitespace-nowrap">
+               All
+              </span>
+              <BiDotsHorizontalRounded />
+            </div>
+          </Link>
           {notebooks?.map((notebook: any, index: number) => (
             <Link href={`/notebook/${notebook?.id}`} key={index}>
               <div

@@ -20,7 +20,7 @@ const Index = () => {
         <HeadSection />
 
         <div className=" custom-timeline rounded-lg  ">
-          <ol className="grid grid-cols-1 gap-4">
+          <ol className="grid grid-cols-4 gap-4">
             <CardComponent note={note} key={1} />
             <CardComponent note={note} key={1} />
             <CardComponent note={note} key={1} />
