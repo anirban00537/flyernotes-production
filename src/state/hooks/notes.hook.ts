@@ -9,6 +9,9 @@ import {
   where,
   getDoc,
   updateDoc,
+  orderBy,
+  startAt,
+  endAt,
 } from "firebase/firestore";
 //@ts-ignore
 import { useRouter } from "next/router";
@@ -129,7 +132,8 @@ export const useInitialAllNotes = () => {
 };
 export const useAllNotesByid = () => {
   const [noteName, setNoteName] = useState("");
-  const [notes, setNotes] = useState  ([]);
+  const [notes, setNotes] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [notebook, setNotebook] = useState<any>();
   const router = useRouter();
   const user: any = useAuth();
@@ -137,6 +141,7 @@ export const useAllNotesByid = () => {
   const { notebook_id } = router.query;
   const GlobalNotesData: any = [];
   const getNotes = async () => {
+    setLoading(true);
     const notesRef = await collection(db, "notes");
     const notebookRef = await doc(db, "notebooks", String(notebook_id));
     let noteQuery = query(
@@ -146,7 +151,6 @@ export const useAllNotesByid = () => {
     );
     const notebookSnap = await getDoc(notebookRef);
     if (notebookSnap.exists()) {
-      console.log(notebookSnap.data(), "notebook snaop");
       setNotebook(notebookSnap.data());
     }
 
@@ -158,8 +162,30 @@ export const useAllNotesByid = () => {
       });
     });
     setNotes(GlobalNotesData);
+    setLoading(false);
   };
-
+  const searchNotes = async (searchTerm: any) => {
+    console.log(searchTerm, "searchTerm");
+    setLoading(true);
+    const notesRef = await collection(db, "notes");
+    const noteQuery = query(
+      notesRef,
+      where("notebook_id", "==", notebook_id),
+      where("title", "==", searchTerm),
+      where("user_id", "==", user.uid)
+    );
+    const notesSnap = await getDocs(noteQuery);
+    const searchedNotes: any = [];
+    await notesSnap.forEach((doc) => {
+      searchedNotes.push({
+        id: doc.id,
+        data: doc.data(),
+      });
+    });
+    console.log(searchedNotes, "searchedNotes");
+    setNotes(searchedNotes);
+    setLoading(false);
+  };
   const createNote = async () => {
     try {
       const timeName = moment(new Date().getTime()).format("LLL");
@@ -180,5 +206,13 @@ export const useAllNotesByid = () => {
   useEffect(() => {
     user?.uid && getNotes();
   }, [user]);
-  return { noteName, setNoteName, createNote, notes, notebook };
+  return {
+    noteName,
+    setNoteName,
+    createNote,
+    notes,
+    notebook,
+    loading,
+    searchNotes,
+  };
 };

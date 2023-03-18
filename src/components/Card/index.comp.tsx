@@ -12,7 +12,7 @@ const Notecard = ({ note }: any) => {
         <a href="#" className="block items-center p-5 w-full">
           <div className=" text-gray-600 dark:text-gray-400">
             <div className="flex items-center">
-              <FaRegStickyNote className="mr-2 text-green-500 text-2xl" />
+              <FaRegStickyNote className="mr-2 text-purple-500 text-2xl" />
               <span className="font-medium text-gray-800 dark:text-white text-lg">
                 {note?.data?.name}
               </span>
@@ -29,7 +29,7 @@ const Notecard = ({ note }: any) => {
                   index < 3 && (
                     <Badge
                       key={index}
-                      className="mr-2 mb-2 hover:bg-green-300 dark:hover:bg-green-700"
+                      className="mr-2 mb-2 hover:bg-purple-400 dark:hover:bg-purple-700"
                       bgColor="bg-green-200"
                       textColor="text-green-800"
                       title={tag}
@@ -40,9 +40,7 @@ const Notecard = ({ note }: any) => {
               {note?.data?.tags?.length > 3 && (
                 <Badge
                   key={1}
-                  className="mr-2 mb-2 hover:bg-blue-300 dark:hover:bg-blue-700"
-                  bgColor="bg-blue-200"
-                  textColor="text-blue-800"
+                  // className="mr-2 mb-2 hover:bg-blue-300 dark:hover:bg-blue-700"
                   title={note?.data?.tags?.length - 3 + " more"}
                   id={null}
                   cross={false}

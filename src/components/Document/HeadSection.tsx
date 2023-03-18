@@ -1,7 +1,7 @@
 import React from "react";
 import NoteSearch from "../Search/NoteSearch";
 
-const Search = () => {
+const Search = ({ searchNotes }: any) => {
   return (
     <div className="p-10 pb-3">
       {/* <div
@@ -12,7 +12,7 @@ const Search = () => {
             "url(https://cdn.pixabay.com/photo/2016/03/16/09/42/abstract-background-1260114_960_720.jpg)",
         }}
       ></div> */}
-      <NoteSearch />
+      <NoteSearch searchNotes={searchNotes} />
     </div>
   );
 };
