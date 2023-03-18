@@ -10,7 +10,7 @@ const DrawerSidebar = () => {
     setIsOpen((prevState) => !prevState);
   };
   return (
-    <div className="ml-10 mt-5">
+    <div className="pl-10 mt-5">
       <button onClick={toggleDrawer} className="flex items-center">
         <FaBars className="mr-2" size={20} />
       </button>

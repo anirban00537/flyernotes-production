@@ -13,7 +13,7 @@ const Index = () => {
     useAllNotesByid();
   return (
     <DashboardLayout>
-      <div className="flex w-full flex-col">
+      <div className="flex w-full flex-col mr-5 ml-5">
         <HeadSection searchNotes={searchNotes} />
         <ToolssectionComponent createNote={createNote} />
         <div className=" ">{notes && <NoteLists notes={notes} />}</div>

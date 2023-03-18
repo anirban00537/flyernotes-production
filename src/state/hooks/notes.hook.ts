@@ -111,9 +111,11 @@ export const useGetNotes = () => {
 export const useInitialAllNotes = () => {
   const user: any = useAuth();
   const [notes, setNotes] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const GlobalNotesData: any = [];
   const getNotes = async () => {
+    setLoading(true);
     const notesRef = await collection(db, "notes");
     const noteQuery = query(notesRef, where("user_id", "==", user.uid));
     const Notes = await getDocs(noteQuery);
@@ -124,12 +126,14 @@ export const useInitialAllNotes = () => {
       });
     });
     setNotes(GlobalNotesData);
+    setLoading(false);
   };
   useEffect(() => {
     user?.uid && getNotes();
   }, [user]);
-  return { GlobalNotesData, notes };
+  return { GlobalNotesData, notes, loading };
 };
+
 export const useAllNotesByid = () => {
   const [noteName, setNoteName] = useState("");
   const [notes, setNotes] = useState([]);

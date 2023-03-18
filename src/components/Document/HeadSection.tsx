@@ -3,7 +3,7 @@ import NoteSearch from "../Search/NoteSearch";
 
 const Search = ({ searchNotes }: any) => {
   return (
-    <div className="p-10 pb-3">
+    <div className="pt-5 pb-3">
       {/* <div
         className="flex items-end justify-center rounded-lg bg-cover bg-center  mb-5"
         style={{
