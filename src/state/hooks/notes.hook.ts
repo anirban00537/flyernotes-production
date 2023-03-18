@@ -129,7 +129,7 @@ export const useInitialAllNotes = () => {
 };
 export const useAllNotesByid = () => {
   const [noteName, setNoteName] = useState("");
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState  ([]);
   const [notebook, setNotebook] = useState<any>();
   const router = useRouter();
   const user: any = useAuth();

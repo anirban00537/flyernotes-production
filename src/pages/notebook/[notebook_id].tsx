@@ -2,6 +2,7 @@ import HeadSection from "@/components/Document/HeadSection";
 import NoteLists from "@/components/Document/NoteLists";
 import ToolssectionComponent from "@/components/Document/Toolssection.comp";
 import DashboardLayout from "@/components/Layout/Dashboard.layout";
+import NotfoundComponent from "@/components/NotFound";
 import { useAddNote, useAllNotesByid } from "@/state/hooks/notes.hook";
 import React from "react";
 
@@ -14,6 +15,7 @@ const Index = () => {
         <HeadSection />
         <ToolssectionComponent createNote={createNote} />
         <div className=" w-full">{notes && <NoteLists notes={notes} />}</div>
+        {notes.length === 0 && <NotfoundComponent />}
       </div>
     </DashboardLayout>
   );
