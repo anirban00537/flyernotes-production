@@ -5,11 +5,11 @@ const TimeLineListNotes = ({ notes }: any) => {
   return (
     <div className="">
       <div className="custom-timeline rounded-lg">
-        <ol className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {notes?.map((note: any, index: any) => (
             <Notecard note={note} key={index} />
           ))}
-        </ol>
+        </div>
       </div>
     </div>
   );

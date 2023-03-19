@@ -22,7 +22,7 @@ ul,
 menu {
   list-style: disc;
   margin: 0;
-  /* padding: revert; */
+  padding: revert;
   margin-top: 5px !important;
 }
 .remirror-theme .ProseMirror {

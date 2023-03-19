@@ -29,7 +29,7 @@ const EditorHeader = ({ notesDetails, id }: any) => {
         <input
           type="text"
           id="default-input"
-          className="m-0  mr-2 block w-full rounded-md border-0 px-2 text-3xl text-gray-900 focus:border-purple-500 focus:ring-purple-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-purple-500 dark:focus:ring-purple-500"
+          className="m-0  mr-2 block w-full rounded-md border-0 px-2 text-4xl text-gray-500 font-bold focus:border-purple-500 focus:ring-purple-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-purple-500 dark:focus:ring-purple-500"
           value={`${name}`}
           onChange={(e: any) => {
             setName(e.target.value);
