@@ -11,11 +11,12 @@ import React from "react";
 const Index = () => {
   const { createNote, loading, notes, notebook, searchNotes } =
     useAllNotesByid();
+  console.log(notebook, "notebook");
   return (
     <DashboardLayout>
-      <div className="flex w-full flex-col mr-5 ml-5">
+      <div className="flex w-full flex-col px-10 ">
         <HeadSection searchNotes={searchNotes} />
-        <ToolssectionComponent createNote={createNote} />
+        <ToolssectionComponent createNote={createNote} notebook={notebook} />
         <div className=" ">{notes && <NoteLists notes={notes} />}</div>
         {notes.length === 0 && loading === false && <NotfoundComponent />}
         {loading && <ScaletionSection />}

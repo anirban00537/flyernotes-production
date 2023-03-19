@@ -1,17 +1,18 @@
 import React from "react";
 import NoteSearch from "../Search/NoteSearch";
 
-const Search = ({ searchNotes }: any) => {
+const Search = ({ searchNotes, notebook }: any) => {
   return (
     <div className="pt-5 pb-3">
       {/* <div
-        className="flex items-end justify-center rounded-lg bg-cover bg-center  mb-5"
+        className="flex items-end justify-start rounded-lg mb-5"
         style={{
           height: "150px",
-          backgroundImage:
-            "url(https://cdn.pixabay.com/photo/2016/03/16/09/42/abstract-background-1260114_960_720.jpg)",
+          background: "linear-gradient(to bottom, #9C27B0, #6A1B9A)",
         }}
-      ></div> */}
+      >
+        <h1 className="text-white font-bold text-5xl p-10">{notebook?.name}</h1>
+      </div> */}
       <NoteSearch searchNotes={searchNotes} />
     </div>
   );

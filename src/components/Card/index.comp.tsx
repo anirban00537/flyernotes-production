@@ -3,17 +3,18 @@ import Link from "next/link";
 import React from "react";
 import { FaRegStickyNote } from "react-icons/fa";
 import { IoCalendarOutline } from "react-icons/io5";
+import { FaTag } from "react-icons/fa";
 import Badge from "../Editor/EditorHeader/badge";
 
-const Notecard = ({ note }: any) => {
+const NoteCard = ({ note }: any) => {
   return (
     <Link href={`/document/${note.id}`}>
-      <li className="border rounded-lg sm:flex hover:bg-gray-100 dark:hover:bg-gray-800">
-        <a href="#" className="block items-center p-5 w-full">
-          <div className=" text-gray-600 dark:text-gray-400">
+      <li className="relative border rounded-sm sm:flex hover:shadow-md ">
+        <a href="#" className="block p-3 w-full dark:bg-gray-800">
+          <div className="text-gray-600 dark:text-gray-400">
             <div className="flex items-center">
-              <FaRegStickyNote className="mr-2 text-purple-500 text-2xl" />
-              <span className="font-medium text-gray-800 dark:text-white text-lg">
+              <FaRegStickyNote className="mr-2 text-purple-500 text-xl" />
+              <span className="font-medium text-black dark:text-white text-xl">
                 {note?.data?.name}
               </span>
             </div>
@@ -27,21 +28,14 @@ const Notecard = ({ note }: any) => {
               {note?.data?.tags?.map(
                 (tag: any, index: number) =>
                   index < 3 && (
-                    <Badge
-                      key={index}
-                      className="mr-2 mb-2 hover:bg-purple-400 dark:hover:bg-purple-700"
-                      bgColor="bg-green-200"
-                      textColor="text-green-800"
-                      title={tag}
-                      id={null}
-                    />
+                    <Badge key={index} title={tag} id={null} cross={false} />
                   )
               )}
               {note?.data?.tags?.length > 3 && (
                 <Badge
                   key={1}
-                  // className="mr-2 mb-2 hover:bg-blue-300 dark:hover:bg-blue-700"
-                  title={note?.data?.tags?.length - 3 + " more"}
+                  className="mr-2 mb-2 hover:scale-110 transform transition-all duration-300 ease-in-out"
+                  title={`${note?.data?.tags?.length - 3}` + " more"}
                   id={null}
                   cross={false}
                 />
@@ -54,4 +48,4 @@ const Notecard = ({ note }: any) => {
   );
 };
 
-export default Notecard;
+export default NoteCard;
