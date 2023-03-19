@@ -1,6 +1,7 @@
 import HeadSection from "@/components/Document/HeadSection";
 import NoteLists from "@/components/Document/NoteLists";
 import ToolssectionComponent from "@/components/Document/Toolssection.comp";
+import Badge from "@/components/Editor/EditorHeader/badge";
 import DashboardLayout from "@/components/Layout/Dashboard.layout";
 import Loading from "@/components/Loading";
 import NotfoundComponent from "@/components/NotFound";
@@ -17,6 +18,20 @@ const Index = () => {
       <div className="flex w-full flex-col px-10 ">
         <HeadSection searchNotes={searchNotes} />
         <ToolssectionComponent createNote={createNote} notebook={notebook} />
+        <div className="flex flex-wrap mb-5">
+          <Badge title="Any" cross={false} />
+          <Badge title="Any" cross={false} />
+          <Badge title="Any" cross={false} />
+          <Badge title="Any" cross={false} />
+          <Badge title="Any" cross={false} />
+          <Badge title="Any" cross={false} />
+          <Badge title="Any" cross={false} />
+          <Badge title="Any" cross={false} />
+          <Badge title="Any" cross={false} />
+          <Badge title="Any" cross={false} />
+          <Badge title="Any" cross={false} />
+          <Badge title="Any" cross={false} />
+        </div>
         <div className=" ">{notes && <NoteLists notes={notes} />}</div>
         {notes.length === 0 && loading === false && <NotfoundComponent />}
         {loading && <ScaletionSection />}

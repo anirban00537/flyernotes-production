@@ -1,10 +1,18 @@
 import React from "react";
 
-const Badge = ({ title, deleteTag, id, cross = true }: any) => {
+const Badge = ({
+  px = 2,
+  py = 0.5,
+  title,
+  deleteTag,
+  id,
+  text = "xs",
+  cross = true,
+}: any) => {
   return (
     <span
       id="badge-dismiss-gray"
-      className=" m-1 mr-2 inline-flex items-center rounded-md bg-purple-400 px-2 py-0.5 text-xs font-medium text-white dark:bg-purple-700 dark:text-gray-300 hover:bg-purple-600 cursor-pointer transition-all duration-200 ease-in-out"
+      className={`m-1 mr-2 inline-flex items-center rounded-md bg-purple-400 px-${px} py-${py} text-${text} font-medium text-white dark:bg-purple-700 dark:text-gray-300 hover:bg-purple-600 cursor-pointer transition-all duration-200 ease-in-out`}
     >
       {title}
       {cross === true && (

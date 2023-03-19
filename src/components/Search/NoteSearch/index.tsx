@@ -26,7 +26,7 @@ const NoteSearch = ({ searchNotes }: any) => {
         <input
           type="search"
           id="default-search"
-          className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-200 rounded-lg bg-white focus:ring-purple-500 focus:border-purple-500 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
+          className="block w-full p-4 pl-5 text-sm text-gray-900 border border-gray-200 rounded-lg bg-white focus:ring-purple-500 focus:border-purple-500 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
           placeholder="Search Notes..."
           required
           value={searchTerm}
