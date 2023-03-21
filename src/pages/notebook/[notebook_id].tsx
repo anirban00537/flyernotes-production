@@ -10,27 +10,18 @@ import { useAddNote, useAllNotesByid } from "@/state/hooks/notes.hook";
 import React from "react";
 
 const Index = () => {
-  const { createNote, loading, notes, notebook, searchNotes } =
+  const { createNote, loading, notes, notebook, searchNotes, allTags } =
     useAllNotesByid();
-  console.log(notebook, "notebook");
+  console.log(allTags, "allTags");
   return (
     <DashboardLayout>
       <div className="flex w-full flex-col px-10 ">
         <HeadSection searchNotes={searchNotes} />
         <ToolssectionComponent createNote={createNote} notebook={notebook} />
         <div className="flex flex-wrap mb-5">
-          <Badge title="Any" cross={false} />
-          <Badge title="Any" cross={false} />
-          <Badge title="Any" cross={false} />
-          <Badge title="Any" cross={false} />
-          <Badge title="Any" cross={false} />
-          <Badge title="Any" cross={false} />
-          <Badge title="Any" cross={false} />
-          <Badge title="Any" cross={false} />
-          <Badge title="Any" cross={false} />
-          <Badge title="Any" cross={false} />
-          <Badge title="Any" cross={false} />
-          <Badge title="Any" cross={false} />
+          {allTags.map((tag: any) => (
+            <Badge title={tag} cross={false} />
+          ))}
         </div>
         <div className=" ">{notes && <NoteLists notes={notes} />}</div>
         {notes.length === 0 && loading === false && <NotfoundComponent />}

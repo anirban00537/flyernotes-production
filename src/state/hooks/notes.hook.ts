@@ -46,6 +46,7 @@ export const useNoteEditor = () => {
   const [tags, setTags] = useState<any>([]);
   const [tagName, setTagName] = useState<any>([]);
   const [name, setName] = useState<any>();
+
   const updateNote = async (id: any, content: any) => {
     const noteRef = doc(db, "notes", id);
     await updateDoc(noteRef, { content: content });
@@ -71,6 +72,7 @@ export const useNoteEditor = () => {
     const noteRef = doc(db, "notes", id);
     await updateDoc(noteRef, { name: name });
   };
+  const getAllNotesTags = async () => {};
 
   return {
     updateNote,
@@ -112,6 +114,7 @@ export const useInitialAllNotes = () => {
   const user: any = useAuth();
   const [notes, setNotes] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [allTags, setAllTags] = useState([]);
 
   const GlobalNotesData: any = [];
   const getNotes = async () => {
@@ -119,24 +122,30 @@ export const useInitialAllNotes = () => {
     const notesRef = await collection(db, "notes");
     const noteQuery = query(notesRef, where("user_id", "==", user.uid));
     const Notes = await getDocs(noteQuery);
-    await Notes.forEach((doc) => {
-      GlobalNotesData.push({
+    const allTags: any = [];
+    Notes.forEach((doc) => {
+      const noteData = {
         id: doc.id,
         data: doc.data(),
-      });
+      };
+      allTags.push(...noteData.data.tags);
+      GlobalNotesData.push(noteData);
     });
     setNotes(GlobalNotesData);
+    //@ts-ignore
+    setAllTags([...new Set(allTags)]);
     setLoading(false);
   };
   useEffect(() => {
     user?.uid && getNotes();
   }, [user]);
-  return { GlobalNotesData, notes, loading };
+  return { GlobalNotesData, notes, loading, allTags };
 };
 
 export const useAllNotesByid = () => {
   const [noteName, setNoteName] = useState("");
   const [notes, setNotes] = useState([]);
+  const [allTags, setAllTags] = useState([]);
   const [loading, setLoading] = useState(true);
   const [notebook, setNotebook] = useState<any>();
   const router = useRouter();
@@ -159,13 +168,19 @@ export const useAllNotesByid = () => {
     }
 
     const Notes = await getDocs(noteQuery);
-    await Notes.forEach((doc) => {
-      GlobalNotesData.push({
+    const allTags: any | null | undefined = [];
+    Notes.forEach((doc) => {
+      const noteData = {
         id: doc.id,
         data: doc.data(),
-      });
+      };
+      allTags.push(...noteData.data.tags);
+      GlobalNotesData.push(noteData);
     });
     setNotes(GlobalNotesData);
+    //@ts-ignore
+    const uniqueTags: any = [...new Set(allTags)];
+    setAllTags(uniqueTags);
     setLoading(false);
   };
   const searchNotes = async (searchTerm: any) => {
@@ -216,6 +231,7 @@ export const useAllNotesByid = () => {
     createNote,
     notes,
     notebook,
+    allTags,
     loading,
     searchNotes,
   };
