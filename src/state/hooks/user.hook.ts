@@ -64,7 +64,7 @@ export const useCheckAuthState = () => {
         await dispatch(setLoading(false));
         return;
       } else {
-        await router.push("/all");
+        if (router.asPath === "/") await router.push("/all");
         const token = await user.getIdToken();
         await nookies.set(null, "token", token, { path: "/" });
         const GlobalNotebooksData = await InitialNotebooks(user);
