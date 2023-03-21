@@ -18,7 +18,6 @@ import { InitialNotebooks } from "./notebook.hook";
 
 export const useLogin = () => {
   const router = useRouter();
-  const dispatch = useDispatch();
   const [errorMessage, setErrorMessage] = useState("");
 
   const logout = () => {
@@ -55,21 +54,22 @@ export const useCheckAuthState = () => {
     await dispatch(setLoading(true));
     const unsubscribe = await auth.onAuthStateChanged(async (user) => {
       if (!user) {
-        await setUser(null);
-        await nookies.set(null, "token", "", { path: "/" });
         if (!PublicRoute.includes(router.asPath)) {
           await router.push("/signin");
         }
+        await setUser(null);
+        await nookies.set(null, "token", "", { path: "/" });
         await setUser(null);
         await nookies.set(undefined, "token", "", { path: "/" });
         await dispatch(setLoading(false));
         return;
       } else {
+        await router.push("/all");
         const token = await user.getIdToken();
-        nookies.set(null, "token", token, { path: "/" });
+        await nookies.set(null, "token", token, { path: "/" });
         const GlobalNotebooksData = await InitialNotebooks(user);
-        dispatch(setNotebooks(GlobalNotebooksData));
-        setUser(user);
+        await dispatch(setNotebooks(GlobalNotebooksData));
+        await setUser(user);
         dispatch(setLoading(false));
       }
     });
