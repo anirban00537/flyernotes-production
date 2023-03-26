@@ -141,9 +141,6 @@ const Collapsible = ({ notesDetails, id }: any): JSX.Element => {
                 {/* <DecreaseFontSizeButton /> */}
                 <OnChangeJSON
                   onChange={(e: any) => {
-                    // setTimeout(() => {
-                    //   updateNote(id, e);
-                    // }, 1000);
                     setContent(e);
                   }}
                 />
@@ -215,8 +212,9 @@ function CmdMenu() {
       >
         <ToggleBoldButton
           onClick={() => {
-            setEnabled(false);
             clearIgnored();
+            setMarkRemoved();
+            setEnabled(false);
           }}
         />
         <ToggleCodeBlockButton

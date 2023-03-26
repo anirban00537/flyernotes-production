@@ -8,10 +8,10 @@
   src: local('Merriweather'),
     url(../assets/fonts/MerriweatherSans-Regular.ttf) format('truetype');
 } */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;600&display=swap");
 body {
   margin: 0;
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: "Merriweather Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
@@ -55,13 +55,13 @@ div::-webkit-scrollbar {
   list-style: none;
   margin-left: 0;
 }
-.document-width{
+.document-width {
   width: 1000px;
 }
-.css-15feu8x .remirror-theme .ProseMirror{
+.css-15feu8x .remirror-theme .ProseMirror {
   padding: 0px !important;
 }
-.MuiStack-root{
+.MuiStack-root {
   display: flex;
   flex-wrap: wrap;
 }
@@ -69,7 +69,7 @@ div::-webkit-scrollbar {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #DB4437;
+  background-color: #db4437;
   color: #fff;
   font-weight: bold;
   font-size: 1.2rem;
@@ -79,6 +79,6 @@ div::-webkit-scrollbar {
 }
 
 .btn-google:hover {
-  background-color: #EA4335;
+  background-color: #ea4335;
   transform: scale(1.05);
 }
