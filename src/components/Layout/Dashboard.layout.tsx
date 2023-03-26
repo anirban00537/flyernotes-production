@@ -31,7 +31,6 @@ export default function DashboardLayout({
           <DrawerSidebar />
         )}
         {children}
-        {/* <EndSidebar /> */}
       </div>
     </>
   );
