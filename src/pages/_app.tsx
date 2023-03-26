@@ -3,14 +3,12 @@ import "@/styles/index.css";
 import { Provider } from "react-redux";
 import { store } from "@/state/store";
 import Layout from "@/components/Layout/layout";
-import { useEnablePresistance } from "@/database/firebase";
 import { useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
 const queryClient = new QueryClient();
 export default function MyApp({ Component, pageProps }: AppProps) {
-  useEnablePresistance();
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>

@@ -20,14 +20,12 @@ const NoteBookCollapse = ({ notebooks }: any) => {
       </button>
       <ul id="dropdown-example" className="space-y-2 py-2 pl-0">
         <li>
-          <Link href="/all">
+          <Link href="/dashboard">
             <div
               className={`grou flex w-full items-center  p-2  text-sm  text-gray-800 transition duration-75 `}
             >
               <BiDockBottom className="mr-2" />
-              <span className=" flex-1 whitespace-nowrap">
-               All
-              </span>
+              <span className=" flex-1 whitespace-nowrap">All</span>
               <BiDotsHorizontalRounded />
             </div>
           </Link>

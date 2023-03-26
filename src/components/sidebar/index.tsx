@@ -1,12 +1,10 @@
 import React from "react";
 import { BiHomeAlt } from "react-icons/bi";
 import NoteBookCollapse from "@/components/sidebar/NotebookCollaps";
-import { useLogin } from "@/state/hooks/user.hook";
 import { useSelector } from "react-redux";
 import { RootState } from "@/state/store";
 
 const SidebarComponent = () => {
-  const { logout } = useLogin();
   const { notebooks } = useSelector((state: RootState) => state.notebooklice);
   return (
     <aside
@@ -42,7 +40,7 @@ const SidebarComponent = () => {
         </p>
       </div>
       <button
-        onClick={logout}
+        // onClick={logout}
         className="p-2 bg-red-500 text-white rounded-lg mt-6"
       >
         Logout

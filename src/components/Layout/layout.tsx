@@ -1,6 +1,6 @@
-import Head from 'next/head';
-import Loading from '../Loading';
-import { useCheckAuthState } from '@/state/hooks/user.hook';
+import Head from "next/head";
+import Loading from "../Loading";
+import { useState } from "react";
 type LayoutProps = {
   children: React.ReactNode;
   title?: string;
@@ -8,9 +8,9 @@ type LayoutProps = {
 
 export default function Layout({
   children,
-  title = 'Flyernotes',
+  title = "Flyernotes",
 }: LayoutProps) {
-  const { loading } = useCheckAuthState();
+  const [loading, setLoading] = useState(false);
 
   return loading ? (
     <Loading />

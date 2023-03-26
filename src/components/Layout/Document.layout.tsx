@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
 import Loading from "../Loading";
-import { useCheckAuthState } from "@/state/hooks/user.hook";
 import SidebarComponent from "@/components/sidebar";
 import useAutoCollapseSidebar from "@/state/hooks/common.hook";
 
