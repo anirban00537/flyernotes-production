@@ -125,6 +125,7 @@ export const useCheckAuthState = () => {
     onError: () => {
       router.push("/signin");
     },
+    enabled: !!Cookies.get("token"),
   });
 
   const { isLoading: isNotesLoading } = useQuery({
