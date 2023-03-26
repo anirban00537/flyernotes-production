@@ -1,11 +1,16 @@
 import { loginApi, signupApi, verifyEmailApi } from "@/service/authentication";
+import { GetUserProfile } from "@/service/user";
 //@ts-ignore
 import Cookies from "js-cookie";
-
 import { processResponse } from "@/utils/functions";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setUser } from "@/state/reducer/userSlice";
+import { GetUserNotesAndLabels } from "@/service/notes";
+import { setLabels, setNotes } from "@/state/reducer/notesSlice";
 
 export const useSignin = () => {
   const router = useRouter();
@@ -102,4 +107,41 @@ export const useVerifyEmail = () => {
   };
 
   return { register, handleSubmit, errors, handleVerifyCode, isLoading };
+};
+
+export const useCheckAuthState = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
+
+  const { data: userProfile, isLoading: isProfileLoading } = useQuery({
+    retry: 0,
+    queryKey: ["user"],
+    queryFn: () => GetUserProfile(),
+    onSuccess: (data) => {
+      if (data.success === true) {
+        dispatch(setUser(data.data));
+      }
+    },
+    onError: () => {
+      router.push("/signin");
+    },
+  });
+
+  const { isLoading: isNotesLoading } = useQuery({
+    retry: 0,
+    queryKey: ["notes"],
+    queryFn: () => GetUserNotesAndLabels(),
+    enabled: !!userProfile?.data,
+    onSuccess: (data) => {
+      if (data.success === true) {
+        dispatch(setLabels(data?.data?.all_labels));
+        dispatch(setNotes(data?.data?.all_notes));
+      }
+    },
+  });
+
+  return {
+    isLoading: isProfileLoading || isNotesLoading,
+    user: userProfile?.data,
+  };
 };

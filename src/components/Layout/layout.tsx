@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Loading from "../Loading";
 import { useState } from "react";
+import { useCheckAuthState } from "@/hooks/authentication.hook";
 type LayoutProps = {
   children: React.ReactNode;
   title?: string;
@@ -10,9 +11,8 @@ export default function Layout({
   children,
   title = "Flyernotes",
 }: LayoutProps) {
-  const [loading, setLoading] = useState(false);
-
-  return loading ? (
+  const { isLoading } = useCheckAuthState();
+  return isLoading ? (
     <Loading />
   ) : (
     <>

@@ -1,13 +1,8 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-export type UserType = {
-  notes: [];
-  noteBooks: [];
-  loading: true;
-};
-
 const initialState: any = {
   notes: [],
+  labels: [],
   loading: true,
 };
 
@@ -18,6 +13,9 @@ export const notesSlice = createSlice({
     setNotes: (state, action: any) => {
       state.notes = action.payload;
     },
+    setLabels: (state, action: any) => {
+      state.labels = action.payload;
+    },
 
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.loading = action.payload;
@@ -25,5 +23,5 @@ export const notesSlice = createSlice({
   },
 });
 
-export const { setLoading, setNotes } = notesSlice.actions;
+export const { setLoading, setNotes, setLabels } = notesSlice.actions;
 export default notesSlice.reducer;

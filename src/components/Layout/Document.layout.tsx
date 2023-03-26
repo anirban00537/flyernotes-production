@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 import Loading from "../Loading";
 import SidebarComponent from "@/components/sidebar";
-import useAutoCollapseSidebar from "@/state/hooks/common.hook";
+import useAutoCollapseSidebar from "@/hooks/common.hook";
 
 type LayoutProps = {
   children: React.ReactNode;

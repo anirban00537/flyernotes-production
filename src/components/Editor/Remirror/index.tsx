@@ -53,9 +53,7 @@ import {
 import { AllStyledComponent } from "@remirror/styles/emotion";
 import { useCallback, useEffect, useState } from "react";
 import moment from "moment";
-import { useNoteEditor } from "@/state/hooks/notes.hook";
 import { useDebounce } from "use-debounce";
-import EditorHeader from "../EditorHeader";
 const TWO_COLUMNS: ColumnAttributes = {
   count: 2,
   fill: "balance",
@@ -68,7 +66,6 @@ const THREE_COLUMNS: ColumnAttributes = {
   count: 3,
 };
 const Collapsible = ({ notesDetails, id }: any): JSX.Element => {
-  const { updateNote } = useNoteEditor();
   const [content, setContent] = useState(notesDetails?.content);
   const [value] = useDebounce(content, 1500);
   const extensions = useCallback(
@@ -101,7 +98,7 @@ const Collapsible = ({ notesDetails, id }: any): JSX.Element => {
     []
   );
   useEffect(() => {
-    updateNote(id, value);
+    // updateNote(id, value);
   }, [value]);
   const { manager, state } = useRemirror({
     extensions,
@@ -112,9 +109,6 @@ const Collapsible = ({ notesDetails, id }: any): JSX.Element => {
 
   return (
     <div className="m-5">
-      {notesDetails?.name && (
-        <EditorHeader notesDetails={notesDetails} id={id} />
-      )}
       {notesDetails && (
         <AllStyledComponent>
           <ThemeProvider>

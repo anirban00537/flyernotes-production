@@ -1,6 +1,6 @@
 import Head from "next/head";
 import SidebarComponent from "@/components/sidebar";
-import useAutoCollapseSidebar from "@/state/hooks/common.hook";
+import useAutoCollapseSidebar from "@/hooks/common.hook";
 import DrawerSidebar from "../sidebar/DrawerSidebar";
 
 type LayoutProps = {

@@ -1,4 +1,4 @@
-import { useSignup } from "@/state/hooks/authentication.hook";
+import { useSignup } from "@/hooks/authentication.hook";
 import { useState } from "react";
 
 export const Signup = () => {
