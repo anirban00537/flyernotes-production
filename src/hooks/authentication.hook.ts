@@ -123,7 +123,7 @@ export const useCheckAuthState = () => {
       }
     },
     onError: () => {
-      router.push("/signin");
+      // router.push("/signin");
     },
     enabled: !!Cookies.get("token"),
   });
@@ -142,7 +142,7 @@ export const useCheckAuthState = () => {
   });
 
   return {
-    isLoading: isProfileLoading || isNotesLoading,
+    isLoading: false,
     user: userProfile?.data,
   };
 };
