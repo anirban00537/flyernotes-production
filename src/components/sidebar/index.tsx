@@ -1,5 +1,3 @@
-import { RootState } from "@/state/sthttps://itechsoft.vercel.app/
-ore";
 import React, { useState } from "react";
 import Link from "next/link";
 import { BiChevronDown } from "react-icons/bi";
@@ -11,6 +9,7 @@ import { GrDocumentNotes } from "react-icons/gr";
 import { TfiSettings } from "react-icons/tfi";
 import { useSelector } from "react-redux";
 import Badge from "../Editor/EditorHeader/badge";
+import { RootState } from "@/state/store";
 
 const SidebarComponent = () => {
   const { user } = useSelector((state: RootState) => state.userSlice);
@@ -23,7 +22,6 @@ const SidebarComponent = () => {
   };
   return (
     <aside className="flex flex-col w-64 height-full sticky top-0 h-screen px-5 py-3 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
-     
       <div className="flex flex-col justify-between flex-1 mt-6">
         <nav className="flex-1 -mx-3 space-y-3">
           <Link href="/dashboard">
